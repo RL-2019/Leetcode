@@ -14,10 +14,6 @@ class Solution {
                 continue;
             }
             while(j<k){
-                if((k<nums.length-1) &&(nums[k] == nums[k+1])){
-                    k--;
-                    continue;
-                }
                 if((nums[i]+nums[j]+nums[k])>0){
                     k--;
                 }else if((nums[i]+nums[j]+nums[k])<0){
@@ -28,6 +24,8 @@ class Solution {
                     list.add(nums[j]);
                     list.add(nums[k]);
                     result.add(list);
+                    while (j < k && nums[j] == nums[j + 1]) ++j;
+                    while (j < k && nums[k] == nums[k - 1]) --k;
                     j++;
                     k--;
                     
